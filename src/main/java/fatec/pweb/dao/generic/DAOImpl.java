@@ -49,7 +49,7 @@ public abstract class DAOImpl <T, I extends Serializable> {
 		}
 
 	}
-	public T getById(Class<T> classe, int i) {
+	public T getById(Class<T> classe, I i) {
 
 		try {
 			return getEntityManager().find(classe, i);

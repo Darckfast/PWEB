@@ -6,10 +6,7 @@ public class Cliente extends Pessoa{
 	    private double limiteDisp;
 	    private ArrayList<Pedido> pedidos;
 	    
-	    public Cliente(String cpf, String nome, double limiteCred) {
-	        super(cpf, nome);
-	        this.limiteCred = limiteCred;
-	        this.limiteDisp = limiteCred;
+	    public Cliente() {
 	        pedidos = new ArrayList<Pedido>();
 	    }
 	    public double getLimiteCred() {

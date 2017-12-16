@@ -10,12 +10,16 @@ public abstract class Pessoa {
     private String ddd;
     private String telefone;
 
-    public Pessoa(String cpf, String nome){
-        this.cpf = cpf;
-        this.nome = nome;
-    }
     
-    public String getCpf() {
+    public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCpf() {
         return cpf;
     }
 

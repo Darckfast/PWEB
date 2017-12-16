@@ -2,8 +2,6 @@ package fatec.pweb.service;
 
 
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
 
 import fatec.pweb.dao.ClienteDAO;
 import fatec.pweb.model.Cliente;
@@ -41,4 +39,9 @@ public class ClienteService {
 		clienteDAO.closeEntityManager();
 	}
 	
+	public Cliente consultar(Cliente cliente) {
+		cliente = clienteDAO.getById(Cliente.class, cliente.getCpf());
+		clienteDAO.closeEntityManager();
+		return cliente;
+	}
 }
