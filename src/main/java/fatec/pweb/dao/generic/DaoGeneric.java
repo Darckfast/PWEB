@@ -58,5 +58,4 @@ public class DaoGeneric <T, I extends Serializable> {
 			em.close();
 		em = null;
 	}
-	
 }

@@ -46,12 +46,12 @@ public class ClienteBeans {
 	}
 	
 	public void remover(Cliente cliente) {
-		service.remover(cliente);
+		service.remover(cliente.getCpf());
 		clientes.remove(cliente);
 	}
 	
-	public Cliente consultar(Cliente cliente) {
-		cliente = service.consultar(cliente);
+	/*public Cliente consultar(String cpf) {
+		cliente = service.consultar(cpf);
 		return cliente;
-	}
+	}*/
 }

@@ -30,8 +30,6 @@ public class Pessoa implements Serializable{
 		this.cpf = cpf;
 	}
 
-
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}

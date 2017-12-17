@@ -20,13 +20,14 @@ public class ClienteService {
 		return list;
 	}
 	
-	public void alterar(Cliente cliente) {
+	public Cliente alterar(Cliente cliente) {
 		clienteDao.save(cliente);
 		clienteDao.closeEntityManager();
+		return cliente;
 	}
 	
-	public void remover(Cliente cliente) {
-		cliente = clienteDao.getById(Cliente.class, cliente.getCpf());
+	public void remover(String id) {
+		Cliente cliente = clienteDao.getById(Cliente.class, id);
 		clienteDao.remove(cliente);
 		clienteDao.closeEntityManager();
 	}
