@@ -1,5 +1,6 @@
 package fatec.pweb.beans.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -42,15 +43,18 @@ public class PedidoBeans {
 	}
 	
 	public void salvar() {
-		pedido.setCliente(cliente);
-		pedido.setVendedor(vendedor);
-		
+		//pedido.setCliente(cliente);
+		//pedido.setVendedor(vendedor);
 		pedido = service.salvar(pedido);
-		
-		if (pedidos != null)
+		if (pedidos != null) {
 			pedidos.add(pedido);
-		
+			for(ItemPedido i : itens) {
+				i.setPedido(pedido);
+				ServiceItem.salvar(i);
+			}
+		}
 		pedido = new Pedido();
+		itens = new ArrayList<>();
 		cliente = null;
 		vendedor = null;
 	}

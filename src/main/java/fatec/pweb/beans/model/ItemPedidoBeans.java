@@ -11,6 +11,7 @@ import fatec.pweb.model.ItemPedido;
 import fatec.pweb.model.Pedido;
 import fatec.pweb.model.Produto;
 import fatec.pweb.service.ItemPedidoService;
+import fatec.pweb.service.PedidoService;
 import fatec.pweb.service.ProdutoService;
 
 @ManagedBean
@@ -25,7 +26,8 @@ public class ItemPedidoBeans {
 	private ProdutoService serviceProd = new ProdutoService();
 	
 	private Pedido pedido;
-	
+	private PedidoService servicePed = new PedidoService();
+
 	public void onRowEdit(RowEditEvent event) {
 		ItemPedido i = ((ItemPedido) event.getObject());
 		service.alterar(i);

@@ -27,14 +27,14 @@
       			<p:inputText value="#{pedidoBeans.pedido.dataEmissaoPedido}" />
       			
       			<p:outputLabel value="#{msg['pages.emitirPedido.cliente']}" />
-				<p:selectOneMenu value="#{pedidoBeans.cliente}" converter="converterCliente">
+				<p:selectOneMenu value="#{pedidoBeans.pedido.cliente}" converter="converterCliente">
 					<f:selectItem itemValue="" itemLabel="#{msg['pages.emitirPedido.cliente.msg']}" />
 						<f:selectItems value="#{pedidoBeans.clientes}" var="aux"
 							itemValue="#{aux}" itemLabel="#{aux.nome}" />
 				</p:selectOneMenu>
 				
 				<p:outputLabel value="#{msg['pages.emitirPedido.vendedor']}" />
-				<p:selectOneMenu value="#{pedidoBeans.vendedor}" converter="converterVendedor">
+				<p:selectOneMenu value="#{pedidoBeans.pedido.vendedor}" converter="converterVendedor">
 					<f:selectItem itemValue="" itemLabel="#{msg['pages.emitirPedido.vendedor.msg']}" />
 						<f:selectItems value="#{pedidoBeans.vendedores}" var="aux"
 							itemValue="#{aux}" itemLabel="#{aux.nome}" />
@@ -47,7 +47,7 @@
 	  		<br/>
 	  		<p:panelGrid columns="2">
       			<p:outputLabel value="#{msg['pages.emitirPedido.produto']}" />
-				<p:selectOneMenu value="#{itemPedidoBeans.produto}" converter="converterProduto">
+				<p:selectOneMenu value="#{itemPedidoBeans.item.produto}" converter="converterProduto">
 					<f:selectItem itemValue="" itemLabel="#{msg['pages.emitirPedido.produto.msg']}" />
 						<f:selectItems value="#{itemPedidoBeans.produtos}" var="aux"
 							itemValue="#{aux}" itemLabel="#{aux.descricao}" />
@@ -105,7 +105,7 @@
 	  		
 	  		<p:commandButton 	value="#{msg['pages.comuns.form.btnSalvar']}"
 								action="#{pedidoBeans.salvar}"
-								update=":formPedido" />
+								update=":formPedido"/>
    		</h:form>
 	</ui:define>
 </ui:composition>
