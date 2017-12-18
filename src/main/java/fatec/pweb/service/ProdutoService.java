@@ -26,8 +26,8 @@ public class ProdutoService {
 		return produto;
 	}
 	
-	public void remover(Integer numero) {
-		Produto produto = produtoDao.getById(Produto.class, numero);
+	public void remover(Produto produto) {
+		produto = produtoDao.getById(Produto.class, produto.getCodigo());
 		produtoDao.remove(produto);
 		produtoDao.closeEntityManager();
 	}

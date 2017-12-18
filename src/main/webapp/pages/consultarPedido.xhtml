@@ -62,18 +62,18 @@
 								<h:outputText value="#{msg['pages.consultarPedido.itens']}" />
 							</f:facet>
 							<p:column headerText="#{msg['pages.cadastrarProduto.descricao']}">
-								<h:outputText value="#{aux2.itens.produto.descricao}" />
+								<h:outputText value="#{aux2.produto.descricao}" />
 							</p:column>
 							<p:column headerText="#{msg['pages.cadastrarProduto.precoUnit']}">
-								<h:outputText value="#{aux2.item.produto.precoUnit}" >
-									<f:convertNumber pattern="R$ #,##0.00" />
+								<h:outputText value="#{aux2.produto.precoUnit}" >
+									<f:convertNumber pattern="R$ #,,##0.00" />
 								</h:outputText>
 							</p:column>
 							<p:column headerText="#{msg['pages.consultarPedido.produtoQtd']}">
 								<h:outputText value="#{aux2.qtdeVendida}" />
 							</p:column>
 							<p:column
-								headerText="#{msg['pages.consultarPedido.proceUnit']}">
+								headerText="#{msg['pages.consultarPedido.ValorFinal']}">
 								<h:outputText value="#{aux2.produto.precoUnit * aux2.qtdeVendida}">
 									<f:convertNumber pattern="R$ #,##0.00" />
 								</h:outputText>

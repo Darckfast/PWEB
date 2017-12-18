@@ -11,31 +11,37 @@ import org.primefaces.event.RowEditEvent;
 import fatec.pweb.model.Cliente;
 import fatec.pweb.model.ItemPedido;
 import fatec.pweb.model.Pedido;
+import fatec.pweb.model.Produto;
 import fatec.pweb.model.Vendedor;
 import fatec.pweb.service.ClienteService;
 import fatec.pweb.service.ItemPedidoService;
 import fatec.pweb.service.PedidoService;
+import fatec.pweb.service.ProdutoService;
 import fatec.pweb.service.VendedorService;
 
 @ManagedBean
 @ViewScoped
 public class PedidoBeans {
+	
 	private Pedido pedido = new Pedido();
-	
 	private List<Pedido> pedidos;
-	
 	private PedidoService service = new PedidoService();
+	private double valorTotal = 0.00;
 	
 	private Cliente cliente;
-	private ClienteService ServiceCli = new ClienteService();
+	private ClienteService ServiceCliente = new ClienteService();
 	
 	private Vendedor vendedor;
 	private VendedorService ServiceVend = new VendedorService();
 	
-	private ItemPedido item;
+	private ItemPedido item = new ItemPedido();
 	private ItemPedidoService ServiceItem = new ItemPedidoService();
+	private List<ItemPedido> itens = new ArrayList<>();
+	private ItemPedido itemSelec = new ItemPedido();
 	
-	private List<ItemPedido> itens;
+	private Produto produto = new Produto();
+	private ProdutoService serviceProduto = new ProdutoService();
+	
 	
 	public void onRowEdit(RowEditEvent event) {
 		Pedido p = ((Pedido) event.getObject());
@@ -43,20 +49,21 @@ public class PedidoBeans {
 	}
 	
 	public void salvar() {
-		//pedido.setCliente(cliente);
-		//pedido.setVendedor(vendedor);
 		pedido = service.salvar(pedido);
+		
+		for(ItemPedido i : itens) {
+			ServiceItem.salvar(i);
+		}
+		cliente = pedido.getCliente();
+		ServiceCliente.alterar(cliente);
 		if (pedidos != null) {
 			pedidos.add(pedido);
-			for(ItemPedido i : itens) {
-				i.setPedido(pedido);
-				ServiceItem.salvar(i);
-			}
 		}
 		pedido = new Pedido();
 		itens = new ArrayList<>();
 		cliente = null;
 		vendedor = null;
+		valorTotal = 0;
 	}
 
 	public Pedido getPedido() {
@@ -87,7 +94,7 @@ public class PedidoBeans {
 	}
 	
 	public List<Cliente> getClientes() {
-		return ServiceCli.getClientes();
+		return ServiceCliente.getClientes();
 	}
 
 	public Vendedor getVendedor() {
@@ -113,5 +120,17 @@ public class PedidoBeans {
 	public List<ItemPedido> getItens() {
 		return ServiceItem.getItens();
 	}
-	
+	public void addItem() {
+		item.setPedido(pedido);
+		pedido.addItem(item);
+		valorTotal += item.getQtdeVendida() * item.getProduto().getPrecoUnit();
+		item = new ItemPedido();
+	}
+	public double getValorTotal() {
+		return valorTotal;
+	}
+
+	public void setValorTotal(double valorTotal) {
+		this.valorTotal = valorTotal;
+	}
 }

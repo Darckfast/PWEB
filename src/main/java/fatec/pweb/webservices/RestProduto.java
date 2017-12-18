@@ -19,20 +19,6 @@ import fatec.pweb.model.Produto;
 @Path("/produto")
 public class RestProduto {
 	
-	   //Instalar o Chrome Advanced REST Client
-	   //Para abrir: chrome://apps/  -> Escolha o ARC
-       //Referencia: http://o7planning.org/en/11207/simple-crud-example-with-java-restful-web-service
-
-       
-	   //Exemplo: http://localhost:8080/ProjetoWSRestJSON/rest/client/findById?id=9999
-	   /*@GET
-	   @Path("/findById")
-	   @Produces(MediaType.APPLICATION_JSON)
-	   public Produto findById(@QueryParam("cpf") String cpf){
-           ProdutoService service = new ProdutoService();
-           return service.consultar(cpf);
-	   }*/
-	   //Exemplo: http://localhost:8080/ProjetoWSRestJSON/rest/client/save
 	   @POST
 	   @Path("/save")
 	   @Produces(MediaType.APPLICATION_JSON)
@@ -41,16 +27,6 @@ public class RestProduto {
              return service.salvar(client);
        }
 	   
-	  //Exemplo: http://localhost:8080/ProjetoWSRestJSON/rest/client/delete?id=99999
-	   @DELETE
-	   @Path("/delete")
-	   @Produces(MediaType.APPLICATION_JSON)
-       public void delete(@QueryParam("numero") int numero){
-             ProdutoService service = new ProdutoService();
-             service.remover(numero);
-       }
-	   
-	   //http://localhost:8080/ProjetoWSRestJSON/rest/user/client/all
 	   @GET
 	   @Path("/all")
 	   @Produces(MediaType.APPLICATION_JSON)
@@ -61,7 +37,6 @@ public class RestProduto {
 	       return clients;
 	   }
 
-	   //http://localhost:8080/ProjetoWSRestJSON/rest/user/update
 	   @PUT
 	   @Path("/update")
 	   @Produces(MediaType.APPLICATION_JSON)
@@ -70,4 +45,12 @@ public class RestProduto {
 		   user = service.alterar(user);
 	       return user;
 	   }
+	   
+	   @DELETE
+		@Path("/delete")
+		@Produces(MediaType.APPLICATION_JSON)
+		public void delete(Produto produto) {
+			ProdutoService service = new ProdutoService();
+			service.remover(produto);
+		}
 }

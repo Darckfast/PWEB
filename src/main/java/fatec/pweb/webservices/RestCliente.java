@@ -18,20 +18,8 @@ import fatec.pweb.service.ClienteService;;
 @Path("/cliente")
 public class RestCliente {
 	
-	   //Instalar o Chrome Advanced REST Client
-	   //Para abrir: chrome://apps/  -> Escolha o ARC
-       //Referencia: http://o7planning.org/en/11207/simple-crud-example-with-java-restful-web-service
 
        
-	   //Exemplo: http://localhost:8080/ProjetoWSRestJSON/rest/client/findById?id=9999
-	   /*@GET
-	   @Path("/findById")
-	   @Produces(MediaType.APPLICATION_JSON)
-	   public Cliente findById(@QueryParam("cpf") String cpf){
-           ClienteService service = new ClienteService();
-           return service.consultar(cpf);
-	   }*/
-	   //Exemplo: http://localhost:8080/ProjetoWSRestJSON/rest/client/save
 	   @POST
 	   @Path("/save")
 	   @Produces(MediaType.APPLICATION_JSON)
@@ -40,16 +28,6 @@ public class RestCliente {
              return service.salvar(client);
        }
 	   
-	  //Exemplo: http://localhost:8080/ProjetoWSRestJSON/rest/client/delete?id=99999
-	   @DELETE
-	   @Path("/delete")
-	   @Produces(MediaType.APPLICATION_JSON)
-       public void delete(@QueryParam("cpf") String id){
-             ClienteService service = new ClienteService();
-             service.remover(id);
-       }
-	   
-	   //http://localhost:8080/ProjetoWSRestJSON/rest/user/client/all
 	   @GET
 	   @Path("/all")
 	   @Produces(MediaType.APPLICATION_JSON)
@@ -60,7 +38,6 @@ public class RestCliente {
 	       return clients;
 	   }
 
-	   //http://localhost:8080/ProjetoWSRestJSON/rest/user/update
 	   @PUT
 	   @Path("/update")
 	   @Produces(MediaType.APPLICATION_JSON)
@@ -69,6 +46,14 @@ public class RestCliente {
 		   user = service.alterar(user);
 	       return user;
 	   }
+	   
+	   @DELETE
+		@Path("/delete")
+		@Produces(MediaType.APPLICATION_JSON)
+		public void delete(Cliente cliente) {
+			ClienteService service = new ClienteService();
+			service.remover(cliente);
+		}
 	   
 	   
  

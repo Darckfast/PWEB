@@ -47,34 +47,29 @@
 	  		<br/>
 	  		<p:panelGrid columns="2">
       			<p:outputLabel value="#{msg['pages.emitirPedido.produto']}" />
-				<p:selectOneMenu value="#{itemPedidoBeans.item.produto}" converter="converterProduto">
+				<p:selectOneMenu value="#{pedidoBeans.item.produto}" converter="converterProduto">
 					<f:selectItem itemValue="" itemLabel="#{msg['pages.emitirPedido.produto.msg']}" />
 						<f:selectItems value="#{itemPedidoBeans.produtos}" var="aux"
 							itemValue="#{aux}" itemLabel="#{aux.descricao}" />
 				</p:selectOneMenu>
 				
 				<p:outputLabel value="#{msg['pages.emitirPedido.qtde']}" />
-				<p:inputText value="#{itemPedidoBeans.item.qtdeVendida}" />
+				<p:inputText value="#{pedidoBeans.item.qtdeVendida}" />
 				
 				<p:commandButton 	value="#{msg['pages.comuns.form.btnIncluir']}"
-									action="#{itemPedidoBeans.salvar}"
-									update="@all" />
+									action="#{pedidoBeans.addItem}"
+									update=":formItens" />
+									
 	  		</p:panelGrid>
 	  		</h:form>
 	  	 	
 	  	 	<h:form id="formItens">	
-	  		<p:dataTable	value="#{itemPedidoBeans.itens}"
+	  		<p:dataTable	value="#{pedidoBeans.pedido.itens}"
                 			var="aux"
-                			id="tabelaItens" scrollable="true"
-                			editable="true"
-                			paginator="true"
-                			rows="5"
+                			id="tabelaItens" 
                 			paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                			rowsPerPageTemplate="5,10,15"
                 			emptyMessage="Nenhum item encontrado">
                 
-                <p:ajax event="rowEdit" listener="#{pedidoBeans.onRowEdit}" update="tabelaItens" />
-                			             			     			
       			<p:column headerText="#{msg['pages.emitirPedido.codigo']}" style="width:160px">
 					<p:outputLabel value="#{aux.produto.codigo}"/>
 	  			</p:column>
@@ -96,16 +91,22 @@
 	  			</p:column>
 	  			
 			</p:dataTable>
-	  		<p:panelGrid columns="2">
+	  		<br/>
+	  		<p:panelGrid columns="2" id="valorTotal">
       			<p:outputLabel value="#{msg['pages.emitirPedido.totalPedido']}" />
-      			<p:outputLabel value="Calcular o total" />
+      			<p:outputLabel value="#{pedidoBeans.valorTotal}" >
+      				<f:convertNumber pattern="R$ #,##0.00" />
+      			</p:outputLabel>
 	  		</p:panelGrid>
 	  		
-	  		<br />
+	  		<br/>
 	  		
+			<input type="hidden" value="${itemPedidoBeans.item.pedido}"/>
+			<input type="hidden"/>	  		
 	  		<p:commandButton 	value="#{msg['pages.comuns.form.btnSalvar']}"
 								action="#{pedidoBeans.salvar}"
-								update=":formPedido"/>
+								immediate="true"
+								update=":formPedido, :formItens"/>
    		</h:form>
 	</ui:define>
 </ui:composition>

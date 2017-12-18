@@ -46,7 +46,7 @@ public class ClienteBeans {
 	}
 	
 	public void remover(Cliente cliente) {
-		service.remover(cliente.getCpf());
+		service.remover(cliente);
 		clientes.remove(cliente);
 	}
 	

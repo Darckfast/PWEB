@@ -26,8 +26,8 @@ public class ClienteService {
 		return cliente;
 	}
 	
-	public void remover(String id) {
-		Cliente cliente = clienteDao.getById(Cliente.class, id);
+	public void remover(Cliente cliente) {
+		cliente = clienteDao.getById(Cliente.class, cliente.getCpf());
 		clienteDao.remove(cliente);
 		clienteDao.closeEntityManager();
 	}
