@@ -46,7 +46,7 @@ public class ProdutoBeans {
 	}
 	
 	public void remover(Produto produto) {
-		service.remover(produto);
+		service.remover(produto.getCodigo());
 		produtos.remove(produto);
 	}
 }

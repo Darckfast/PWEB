@@ -9,43 +9,43 @@
 	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
 	
 	<ui:define name="title">
-		<h:outputText value="#{msg['pages.cadastroVendedor.title']}" />
+		<h:outputText value="#{msg['pages.cadastrarVendedor.title']}" />
 	</ui:define>
 	
 	<ui:define name="principal">
 	  
-	  	<h1><p:outputLabel value="#{msg['pages.cadastroVendedor.title']}"/></h1>
+	  	<h1><p:outputLabel value="#{msg['pages.cadastrarVendedor.title']}"/></h1>
 	  
 	  	<h:form id="formVendedor">	
 	  		<p:panelGrid columns="2">
-      			<p:outputLabel value="#{msg['pages.cadastroVendedor.cpf']}" />
+      			<p:outputLabel value="#{msg['pages.cadastrarVendedor.cpf']}" />
       			<p:inputText value="#{vendedorBeans.vendedor.cpf}"/>
       			
-      			<p:outputLabel value="#{msg['pages.cadastroVendedor.nome']}" />
+      			<p:outputLabel value="#{msg['pages.cadastrarVendedor.nome']}" />
       			<p:inputText value="#{vendedorBeans.vendedor.nome}"/>
       			
-      			<p:outputLabel value="#{msg['pages.cadastroVendedor.endereco']}" />
+      			<p:outputLabel value="#{msg['pages.cadastrarVendedor.endereco']}" />
       			<p:inputText value="#{vendedorBeans.vendedor.endereco}"/>
       			
-      			<p:outputLabel value="#{msg['pages.cadastroVendedor.cidade']}" />
+      			<p:outputLabel value="#{msg['pages.cadastrarVendedor.cidade']}" />
       			<p:inputText value="#{vendedorBeans.vendedor.cidade}"/>
       			
-      			<p:outputLabel value="#{msg['pages.cadastroVendedor.cep']}" />
+      			<p:outputLabel value="#{msg['pages.cadastrarVendedor.cep']}" />
       			<p:inputText value="#{vendedorBeans.vendedor.cep}"/>
       			
-      			<p:outputLabel value="#{msg['pages.cadastroVendedor.uf']}" />
+      			<p:outputLabel value="#{msg['pages.cadastrarVendedor.uf']}" />
       			<p:inputText value="#{vendedorBeans.vendedor.uf}"/>
       			
-      			<p:outputLabel value="#{msg['pages.cadastroVendedor.ddd']}" />
+      			<p:outputLabel value="#{msg['pages.cadastrarVendedor.ddd']}" />
       			<p:inputText value="#{vendedorBeans.vendedor.ddd}"/>
       			
-      			<p:outputLabel value="#{msg['pages.cadastroVendedor.telefone']}" />
+      			<p:outputLabel value="#{msg['pages.cadastrarVendedor.telefone']}" />
       			<p:inputText value="#{vendedorBeans.vendedor.telefone}"/>
       			
-      			<p:outputLabel value="#{msg['pages.cadastroVendedor.salarioBase']}" />
+      			<p:outputLabel value="#{msg['pages.cadastrarVendedor.salarioBase']}" />
       			<p:inputText value="#{vendedorBeans.vendedor.salarioBase}"/>
       			
-      			<p:outputLabel value="#{msg['pages.cadastroVendedor.comissao']}" />
+      			<p:outputLabel value="#{msg['pages.cadastrarVendedor.comissao']}" />
       			<p:inputText value="#{vendedorBeans.vendedor.comissao}"/>
 	  		</p:panelGrid>
 	  		<br/>
@@ -54,7 +54,7 @@
 	                 			update=":formVendedor, :formTableVendedor"/>
    		</h:form>
    		<br/>
-   		<h3><p:outputLabel value="#{msg['pages.cadastroVendedor.tableTitle']}"/></h3>
+   		<h3><p:outputLabel value="#{msg['pages.cadastrarVendedor.tableTitle']}"/></h3>
    		
    		<h:form id="formTableVendedor">
     		<p:dataTable	value="#{vendedorBeans.vendedores}"
@@ -66,11 +66,11 @@
                 			rows="5"
                 			paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                 			rowsPerPageTemplate="5,10,15"
-                			emptyMessage="#{msg['pages.cadastroVendedor.filterMSG']}">
+                			emptyMessage="#{msg['pages.cadastrarVendedor.filterMSG']}">
                 			
       			<p:ajax event="rowEdit" listener="#{vendedorBeans.onRowEdit}" update="tabelaVendedor" />
       			
-      			<p:column headerText="#{msg['pages.cadastroVendedor.cpf']}" filterBy="#{aux.cpf}" filterStyle="width:150px" style="width:160px">
+      			<p:column headerText="#{msg['pages.cadastrarVendedor.cpf']}" filterBy="#{aux.cpf}" filterStyle="width:150px" style="width:160px">
     				<p:cellEditor>
 						<f:facet name="output">
 							<p:outputLabel value="#{aux.cpf}"/>
@@ -81,7 +81,7 @@
 					</p:cellEditor>
 	  			</p:column>
 	  			
-	  			<p:column headerText="#{msg['pages.cadastroVendedor.nome']}" filterBy="#{aux.nome}" filterStyle="width:350px" style="width:360px" >
+	  			<p:column headerText="#{msg['pages.cadastrarVendedor.nome']}" filterBy="#{aux.nome}" filterStyle="width:350px" style="width:360px" >
     				<p:cellEditor>
 						<f:facet name="output">
 							<p:outputLabel value="#{aux.nome}" />
@@ -92,7 +92,7 @@
 					</p:cellEditor>
 	  			</p:column>
 
-	  			<p:column headerText="#{msg['pages.cadastroVendedor.endereco']}" filterBy="#{aux.endereco}" filterStyle="width:350px" style="width:360px">
+	  			<p:column headerText="#{msg['pages.cadastrarVendedor.endereco']}" filterBy="#{aux.endereco}" filterStyle="width:350px" style="width:360px">
     				<p:cellEditor>
 						<f:facet name="output">
 							<p:outputLabel value="#{aux.endereco}" />
@@ -103,7 +103,7 @@
 					</p:cellEditor>
 	  			</p:column>
 	  			
-	  			<p:column headerText="#{msg['pages.cadastroVendedor.cidade']}" filterBy="#{aux.cidade}" filterStyle="width:200px" style="width:210px">
+	  			<p:column headerText="#{msg['pages.cadastrarVendedor.cidade']}" filterBy="#{aux.cidade}" filterStyle="width:200px" style="width:210px">
     				<p:cellEditor>
 						<f:facet name="output">
 							<p:outputLabel value="#{aux.cidade}" />
@@ -114,7 +114,7 @@
 					</p:cellEditor>
 	  			</p:column>
 	  			
-	  			<p:column headerText="#{msg['pages.cadastroVendedor.cep']}" filterBy="#{aux.cep}" filterStyle="width:110px" style="width:120px">
+	  			<p:column headerText="#{msg['pages.cadastrarVendedor.cep']}" filterBy="#{aux.cep}" filterStyle="width:110px" style="width:120px">
     				<p:cellEditor>
 						<f:facet name="output">
 							<p:outputLabel value="#{aux.cep}" />
@@ -125,7 +125,7 @@
 					</p:cellEditor>
 	  			</p:column>
 	  			
-	  			<p:column headerText="#{msg['pages.cadastroVendedor.uf']}" filterBy="#{aux.uf}" filterStyle="width:40px" style="width:50px">
+	  			<p:column headerText="#{msg['pages.cadastrarVendedor.uf']}" filterBy="#{aux.uf}" filterStyle="width:40px" style="width:50px">
     				<p:cellEditor>
 						<f:facet name="output">
 							<p:outputLabel value="#{aux.uf}" />
@@ -136,7 +136,7 @@
 					</p:cellEditor>
 	  			</p:column>
 	  			
-	  			<p:column headerText="#{msg['pages.cadastroVendedor.ddd']}" filterBy="#{aux.ddd}" filterStyle="width:50px" style="width:60px">
+	  			<p:column headerText="#{msg['pages.cadastrarVendedor.ddd']}" filterBy="#{aux.ddd}" filterStyle="width:50px" style="width:60px">
     				<p:cellEditor>
 						<f:facet name="output">
 							<p:outputLabel value="#{aux.ddd}" />
@@ -147,7 +147,7 @@
 					</p:cellEditor>
 	  			</p:column>
 	  			
-	  			<p:column headerText="#{msg['pages.cadastroVendedor.telefone']}" filterBy="#{aux.telefone}" filterStyle="width:140px" style="width:150px">
+	  			<p:column headerText="#{msg['pages.cadastrarVendedor.telefone']}" filterBy="#{aux.telefone}" filterStyle="width:140px" style="width:150px">
     				<p:cellEditor>
 						<f:facet name="output">
 							<p:outputLabel value="#{aux.telefone}" />
@@ -158,7 +158,7 @@
 					</p:cellEditor>
 	  			</p:column>
 	  			
-	  			<p:column headerText="#{msg['pages.cadastroVendedor.salarioBase']}" filterBy="#{aux.salarioBase}" filterStyle="width:190px" style="width:200px">
+	  			<p:column headerText="#{msg['pages.cadastrarVendedor.salarioBase']}" filterBy="#{aux.salarioBase}" filterStyle="width:190px" style="width:200px">
     				<p:cellEditor>
 						<f:facet name="output">
 							<p:outputLabel value="R$ #{aux.salarioBase}" />
@@ -169,7 +169,7 @@
 					</p:cellEditor>
 	  			</p:column>
 	  			
-	  			<p:column headerText="#{msg['pages.cadastroVendedor.comissao']}" filterBy="#{aux.comissao}" filterStyle="width:190px" style="width:200px">
+	  			<p:column headerText="#{msg['pages.cadastrarVendedor.comissao']}" filterBy="#{aux.comissao}" filterStyle="width:190px" style="width:200px">
     				<p:cellEditor>
 						<f:facet name="output">
 							<p:outputLabel value="R$ #{aux.comissao}" />
@@ -180,7 +180,7 @@
 					</p:cellEditor>
 	  			</p:column>
     
-      			<p:column style="width:90px" headerText="#{msg['pages.cadastroVendedor.optionTable']}">
+      			<p:column style="width:90px" headerText="#{msg['pages.cadastrarVendedor.optionTable']}">
 					<p:rowEditor />
 					<p:commandLink 	id="remover" styleClass="ui-icon ui-icon-trash"
 									style="text-align:center"

@@ -9,28 +9,28 @@
 	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
 	
 	<ui:define name="title">
-		<h:outputText value="#{msg['pages.cadastroProduto.title']}" />
+		<h:outputText value="#{msg['pages.cadastrarProduto.title']}" />
 	</ui:define>
 	
 	<ui:define name="principal">
 	  
-	  	<h1><p:outputLabel value="#{msg['pages.cadastroProduto.title']}"/></h1>
+	  	<h1><p:outputLabel value="#{msg['pages.cadastrarProduto.title']}"/></h1>
 	  
 	  	<h:form id="formProduto">	
 	  		<p:panelGrid columns="2">
-      			<p:outputLabel value="#{msg['pages.cadastroProduto.codigo']}" />
+      			<p:outputLabel value="#{msg['pages.cadastrarProduto.codigo']}" />
       			<p:inputText value="#{produtoBeans.produto.codigo}"/>
       			
-      			<p:outputLabel value="#{msg['pages.cadastroProduto.descricao']}" />
+      			<p:outputLabel value="#{msg['pages.cadastrarProduto.descricao']}" />
       			<p:inputText value="#{produtoBeans.produto.descricao}"/>
       			
-      			<p:outputLabel value="#{msg['pages.cadastroProduto.qtdeDisponivel']}" />
+      			<p:outputLabel value="#{msg['pages.cadastrarProduto.qtdeDisponivel']}" />
       			<p:inputText value="#{produtoBeans.produto.qtdeDisponivel}"/>
       			
-      			<p:outputLabel value="#{msg['pages.cadastroProduto.precoUnit']}" />
+      			<p:outputLabel value="#{msg['pages.cadastrarProduto.precoUnit']}" />
       			<p:inputText value="#{produtoBeans.produto.precoUnit}"/>
       			
-      			<p:outputLabel value="#{msg['pages.cadastroProduto.estoqueMin']}" />
+      			<p:outputLabel value="#{msg['pages.cadastrarProduto.estoqueMin']}" />
       			<p:inputText value="#{produtoBeans.produto.estoqueMin}"/>
 	  		</p:panelGrid>
 	  		<br/>
@@ -39,7 +39,7 @@
 	                 			update=":formProduto, :formTableProduto"/>
    		</h:form>
    		<br/>
-   		<h3><p:outputLabel value="#{msg['pages.cadastroProduto.tableTitle']}"/></h3>
+   		<h3><p:outputLabel value="#{msg['pages.cadastrarProduto.tableTitle']}"/></h3>
    		
    		<h:form id="formTableProduto">
     		<p:dataTable	value="#{produtoBeans.produtos}"
@@ -51,11 +51,11 @@
                 			rows="5"
                 			paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                 			rowsPerPageTemplate="5,10,15"
-                			emptyMessage="#{msg['pages.cadastroProduto.filterMSG']}">
+                			emptyMessage="#{msg['pages.cadastrarProduto.filterMSG']}">
                 			
       			<p:ajax event="rowEdit" listener="#{produtoBeans.onRowEdit}" update="tabelaProduto" />
       			
-      			<p:column headerText="#{msg['pages.cadastroProduto.codigo']}" filterBy="#{aux.codigo}" filterStyle="width:150px" style="width:160px">
+      			<p:column headerText="#{msg['pages.cadastrarProduto.codigo']}" filterBy="#{aux.codigo}" filterStyle="width:150px" style="width:160px">
     				<p:cellEditor>
 						<f:facet name="output">
 							<p:outputLabel value="#{aux.codigo}"/>
@@ -66,7 +66,7 @@
 					</p:cellEditor>
 	  			</p:column>
 	  			
-	  			<p:column headerText="#{msg['pages.cadastroProduto.descricao']}" filterBy="#{aux.descricao}" filterStyle="width:350px" style="width:360px" >
+	  			<p:column headerText="#{msg['pages.cadastrarProduto.descricao']}" filterBy="#{aux.descricao}" filterStyle="width:350px" style="width:360px" >
     				<p:cellEditor>
 						<f:facet name="output">
 							<p:outputLabel value="#{aux.descricao}" />
@@ -77,7 +77,7 @@
 					</p:cellEditor>
 	  			</p:column>
 
-	  			<p:column headerText="#{msg['pages.cadastroProduto.qtdeDisponivel']}" filterBy="#{aux.qtdeDisponivel}" filterStyle="width:350px" style="width:360px">
+	  			<p:column headerText="#{msg['pages.cadastrarProduto.qtdeDisponivel']}" filterBy="#{aux.qtdeDisponivel}" filterStyle="width:350px" style="width:360px">
     				<p:cellEditor>
 						<f:facet name="output">
 							<p:outputLabel value="#{aux.qtdeDisponivel}" />
@@ -88,7 +88,7 @@
 					</p:cellEditor>
 	  			</p:column>
 	  			
-	  			<p:column headerText="#{msg['pages.cadastroProduto.precoUnit']}" filterBy="#{aux.precoUnit}" filterStyle="width:200px" style="width:210px">
+	  			<p:column headerText="#{msg['pages.cadastrarProduto.precoUnit']}" filterBy="#{aux.precoUnit}" filterStyle="width:200px" style="width:210px">
     				<p:cellEditor>
 						<f:facet name="output">
 							<p:outputLabel value="#{aux.precoUnit}" />
@@ -99,7 +99,7 @@
 					</p:cellEditor>
 	  			</p:column>
 	  			
-	  			<p:column headerText="#{msg['pages.cadastroProduto.estoqueMin']}" filterBy="#{aux.estoqueMin}" filterStyle="width:110px" style="width:120px">
+	  			<p:column headerText="#{msg['pages.cadastrarProduto.estoqueMin']}" filterBy="#{aux.estoqueMin}" filterStyle="width:110px" style="width:120px">
     				<p:cellEditor>
 						<f:facet name="output">
 							<p:outputLabel value="#{aux.estoqueMin}" />
@@ -110,7 +110,7 @@
 					</p:cellEditor>
 	  			</p:column>
     
-      			<p:column style="width:90px" headerText="#{msg['pages.cadastroProduto.optionTable']}">
+      			<p:column style="width:90px" headerText="#{msg['pages.cadastrarProduto.optionTable']}">
 					<p:rowEditor />
 					<p:commandLink 	id="remover" styleClass="ui-icon ui-icon-trash"
 									style="text-align:center"
