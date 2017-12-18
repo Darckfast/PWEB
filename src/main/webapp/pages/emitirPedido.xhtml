@@ -57,12 +57,22 @@
 				
 				<p:commandButton 	value="#{msg['pages.comuns.form.btnIncluir']}"
 									action="#{itemPedidoBeans.salvar}"
-									update=":formPedido" />
+									update="@all" />
 	  		</p:panelGrid>
-	  		
-	  		<p:dataTable	value="#{pedidoBeans.itens}"
+	  		</h:form>
+	  	 	
+	  	 	<h:form id="formItens">	
+	  		<p:dataTable	value="#{itemPedidoBeans.itens}"
                 			var="aux"
-                			id="tabelaItens" >
+                			id="tabelaItens" scrollable="true"
+                			editable="true"
+                			paginator="true"
+                			rows="5"
+                			paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                			rowsPerPageTemplate="5,10,15"
+                			emptyMessage="Nenhum item encontrado">
+                
+                <p:ajax event="rowEdit" listener="#{pedidoBeans.onRowEdit}" update="tabelaItens" />
                 			             			     			
       			<p:column headerText="#{msg['pages.emitirPedido.codigo']}" style="width:160px">
 					<p:outputLabel value="#{aux.produto.codigo}"/>
@@ -85,7 +95,6 @@
 	  			</p:column>
 	  			
 			</p:dataTable>
-	  		
 	  		<p:panelGrid columns="2">
       			<p:outputLabel value="#{msg['pages.emitirPedido.totalPedido']}" />
       			<p:outputLabel value="Calcular o total" />
@@ -97,6 +106,5 @@
 								action="#{pedidoBeans.salvar}"
 								update=":formPedido" />
    		</h:form>
-   		
 	</ui:define>
 </ui:composition>

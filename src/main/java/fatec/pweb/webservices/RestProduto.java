@@ -12,11 +12,12 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import fatec.pweb.model.Cliente;
-import fatec.pweb.service.ClienteService;;
+import fatec.pweb.service.ProdutoService;
 
-@Path("/cliente")
-public class RestCliente {
+import fatec.pweb.model.Produto;
+
+@Path("/produto")
+public class RestProduto {
 	
 	   //Instalar o Chrome Advanced REST Client
 	   //Para abrir: chrome://apps/  -> Escolha o ARC
@@ -27,16 +28,16 @@ public class RestCliente {
 	   /*@GET
 	   @Path("/findById")
 	   @Produces(MediaType.APPLICATION_JSON)
-	   public Cliente findById(@QueryParam("cpf") String cpf){
-           ClienteService service = new ClienteService();
+	   public Produto findById(@QueryParam("cpf") String cpf){
+           ProdutoService service = new ProdutoService();
            return service.consultar(cpf);
 	   }*/
 	   //Exemplo: http://localhost:8080/ProjetoWSRestJSON/rest/client/save
 	   @POST
 	   @Path("/save")
 	   @Produces(MediaType.APPLICATION_JSON)
-       public Cliente save(Cliente client){
-             ClienteService service = new ClienteService();
+       public Produto save(Produto client){
+             ProdutoService service = new ProdutoService();
              return service.salvar(client);
        }
 	   
@@ -44,19 +45,19 @@ public class RestCliente {
 	   @DELETE
 	   @Path("/delete")
 	   @Produces(MediaType.APPLICATION_JSON)
-       public void delete(@QueryParam("cpf") String id){
-             ClienteService service = new ClienteService();
-             service.remover(id);
+       public void delete(@QueryParam("numero") int numero){
+             ProdutoService service = new ProdutoService();
+             service.remover(numero);
        }
 	   
 	   //http://localhost:8080/ProjetoWSRestJSON/rest/user/client/all
 	   @GET
 	   @Path("/all")
 	   @Produces(MediaType.APPLICATION_JSON)
-	   public List<Cliente> getAllClients(){
-		   List<Cliente> clients;
-		   ClienteService service = new ClienteService();
-		   clients = service.getClientes();
+	   public List<Produto> getAllClients(){
+		   List<Produto> clients;
+		   ProdutoService service = new ProdutoService();
+		   clients = service.getProdutos();
 	       return clients;
 	   }
 
@@ -64,12 +65,9 @@ public class RestCliente {
 	   @PUT
 	   @Path("/update")
 	   @Produces(MediaType.APPLICATION_JSON)
-	   public Cliente update(Cliente user){
-		   ClienteService service = new ClienteService();
+	   public Produto update(Produto user){
+		   ProdutoService service = new ProdutoService();
 		   user = service.alterar(user);
 	       return user;
 	   }
-	   
-	   
- 
 }

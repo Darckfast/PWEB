@@ -16,6 +16,7 @@ import fatec.pweb.service.ProdutoService;
 @ManagedBean
 @ViewScoped
 public class ItemPedidoBeans {
+	
 	private ItemPedido item = new ItemPedido();
 	private List<ItemPedido> itens;
 	private ItemPedidoService service = new ItemPedidoService();

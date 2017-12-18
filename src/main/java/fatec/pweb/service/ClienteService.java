@@ -32,9 +32,9 @@ public class ClienteService {
 		clienteDao.closeEntityManager();
 	}
 	
-	public Cliente consultar(Cliente cliente) {
-		cliente = clienteDao.getById(Cliente.class, cliente.getCpf());
-		clienteDao.closeEntityManager();
-		return cliente;
+	public Cliente consultar(String cpf) {
+        Cliente cliente = clienteDao.getById(Cliente.class, cpf);
+        clienteDao.closeEntityManager();
+        return cliente;
 	}
 }

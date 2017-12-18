@@ -20,9 +20,10 @@ public class VendedorService {
 		return list;
 	}
 	
-	public void alterar (Vendedor vendedor) {
+	public Vendedor alterar (Vendedor vendedor) {
 		vendedorDao.save(vendedor);
 		vendedorDao.closeEntityManager();
+		return vendedor;
 	}
 	
 	public void remover (Vendedor vendedor) {

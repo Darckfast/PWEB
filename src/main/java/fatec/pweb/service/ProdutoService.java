@@ -20,13 +20,14 @@ public class ProdutoService {
 		return list;
 	}
 	
-	public void alterar(Produto produto) {
+	public Produto alterar(Produto produto) {
 		produtoDao.save(produto);
 		produtoDao.closeEntityManager();
+		return produto;
 	}
 	
-	public void remover(Produto produto) {
-		produto = produtoDao.getById(Produto.class, produto.getCodigo());
+	public void remover(Integer numero) {
+		Produto produto = produtoDao.getById(Produto.class, numero);
 		produtoDao.remove(produto);
 		produtoDao.closeEntityManager();
 	}

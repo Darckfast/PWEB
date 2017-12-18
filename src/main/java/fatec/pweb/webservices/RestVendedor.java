@@ -12,11 +12,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import fatec.pweb.model.Cliente;
-import fatec.pweb.service.ClienteService;;
+import fatec.pweb.model.Vendedor;
+import fatec.pweb.service.VendedorService;;
 
-@Path("/cliente")
-public class RestCliente {
+@Path("/vendedor")
+public class RestVendedor {
 	
 	   //Instalar o Chrome Advanced REST Client
 	   //Para abrir: chrome://apps/  -> Escolha o ARC
@@ -27,16 +27,16 @@ public class RestCliente {
 	   /*@GET
 	   @Path("/findById")
 	   @Produces(MediaType.APPLICATION_JSON)
-	   public Cliente findById(@QueryParam("cpf") String cpf){
-           ClienteService service = new ClienteService();
+	   public Vendedor findById(@QueryParam("cpf") String cpf){
+           VendedorService service = new VendedorService();
            return service.consultar(cpf);
 	   }*/
 	   //Exemplo: http://localhost:8080/ProjetoWSRestJSON/rest/client/save
 	   @POST
 	   @Path("/save")
 	   @Produces(MediaType.APPLICATION_JSON)
-       public Cliente save(Cliente client){
-             ClienteService service = new ClienteService();
+       public Vendedor save(Vendedor client){
+             VendedorService service = new VendedorService();
              return service.salvar(client);
        }
 	   
@@ -45,18 +45,18 @@ public class RestCliente {
 	   @Path("/delete")
 	   @Produces(MediaType.APPLICATION_JSON)
        public void delete(@QueryParam("cpf") String id){
-             ClienteService service = new ClienteService();
-             service.remover(id);
+             VendedorService service = new VendedorService();
+             //service.remover(id);
        }
 	   
 	   //http://localhost:8080/ProjetoWSRestJSON/rest/user/client/all
 	   @GET
 	   @Path("/all")
 	   @Produces(MediaType.APPLICATION_JSON)
-	   public List<Cliente> getAllClients(){
-		   List<Cliente> clients;
-		   ClienteService service = new ClienteService();
-		   clients = service.getClientes();
+	   public List<Vendedor> getAllClients(){
+		   List<Vendedor> clients;
+		   VendedorService service = new VendedorService();
+		   clients = service.getVendedors();
 	       return clients;
 	   }
 
@@ -64,8 +64,8 @@ public class RestCliente {
 	   @PUT
 	   @Path("/update")
 	   @Produces(MediaType.APPLICATION_JSON)
-	   public Cliente update(Cliente user){
-		   ClienteService service = new ClienteService();
+	   public Vendedor update(Vendedor user){
+		   VendedorService service = new VendedorService();
 		   user = service.alterar(user);
 	       return user;
 	   }

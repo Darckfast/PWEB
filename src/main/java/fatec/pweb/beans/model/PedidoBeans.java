@@ -20,7 +20,9 @@ import fatec.pweb.service.VendedorService;
 @ViewScoped
 public class PedidoBeans {
 	private Pedido pedido = new Pedido();
+	
 	private List<Pedido> pedidos;
+	
 	private PedidoService service = new PedidoService();
 	
 	private Cliente cliente;
@@ -31,6 +33,8 @@ public class PedidoBeans {
 	
 	private ItemPedido item;
 	private ItemPedidoService ServiceItem = new ItemPedidoService();
+	
+	private List<ItemPedido> itens;
 	
 	public void onRowEdit(RowEditEvent event) {
 		Pedido p = ((Pedido) event.getObject());
@@ -105,4 +109,5 @@ public class PedidoBeans {
 	public List<ItemPedido> getItens() {
 		return ServiceItem.getItens();
 	}
+	
 }
