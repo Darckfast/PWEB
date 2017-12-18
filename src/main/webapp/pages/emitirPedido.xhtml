@@ -43,7 +43,8 @@
 	  		
 	  		<br />
 	  		<p:outputLabel value="#{msg['pages.emitirPedido.produtos']}" />
-	  		
+	  		<h:messages id="errorMessages" style="color:red;margin:8px;" />
+	  		<br/>
 	  		<p:panelGrid columns="2">
       			<p:outputLabel value="#{msg['pages.emitirPedido.produto']}" />
 				<p:selectOneMenu value="#{itemPedidoBeans.produto}" converter="converterProduto">

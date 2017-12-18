@@ -32,8 +32,8 @@ public class ItemPedidoBeans {
 	}
 	
 	public void salvar() {
-		item.setProduto(produto);
-		item.setPedido(pedido);
+		//item.setProduto(produto);
+		//item.setPedido(pedido);
 		
 		item = service.salvar(item);
 		

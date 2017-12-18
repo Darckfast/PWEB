@@ -11,7 +11,6 @@
 		<h:outputText value="#{msg['pages.consultarPedido.title']}" />
 	</ui:define>
 
-
 	<ui:define name="principal">
 		<h:form id="formPesq">
 			<p:dataTable var="aux" value="#{pedidoMB.pedidos}"
@@ -96,18 +95,8 @@
 							</h:outputText>
 						</p:panelGrid>
 			   		</p:overlayPanel>
-    				
-				    <!-- <p:commandButton update="formPesq"
-						icon="ui-icon ui-icon-trash" title="Remover"
-						value="#{msg['pages.Consultar_pedido.opcoes.cancel']}"
-						disabled="true"
-						> 
-					</p:commandButton> -->
 				</p:column>
-
 			</p:dataTable>
-
 		</h:form>
-
 	</ui:define>
 </ui:composition>

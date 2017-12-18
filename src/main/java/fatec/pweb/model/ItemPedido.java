@@ -51,4 +51,9 @@ public class ItemPedido {
         produto.setQtdeDisponivel(produto.getQtdeDisponivel() - getQtdeVendida());
     }
     
+    @Override
+	public String toString() {
+		return pedido.toString() + " - produto " + produto.toString() + ", quantidade " + qtdeVendida;
+	}
+    
 }

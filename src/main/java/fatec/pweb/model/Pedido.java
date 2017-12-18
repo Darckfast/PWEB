@@ -88,5 +88,32 @@ public class Pedido {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-    
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((dataEmissaoPedido == null) ? 0 : dataEmissaoPedido.hashCode());
+		result = prime * result + numero;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pedido other = (Pedido) obj;
+		if (dataEmissaoPedido == null) {
+			if (other.dataEmissaoPedido != null)
+				return false;
+		} else if (!dataEmissaoPedido.equals(other.dataEmissaoPedido))
+			return false;
+		if (numero != other.numero)
+			return false;
+		return true;
+	}
+
 }
